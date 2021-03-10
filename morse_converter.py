@@ -1,9 +1,8 @@
 import pandas as pd
 
 morse_code = pd.read_csv('morse.csv', header=None)
-morse_code_dict = {}
-for i in range(len(morse_code)):
-    morse_code_dict[morse_code.iloc[i][0]] = morse_code.iloc[i][1]
+morse_code_dict = {row[0]: row[1] for (
+    index, row) in morse_code.iterrows()}
 
 
 def convert_text(text):
